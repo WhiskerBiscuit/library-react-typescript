@@ -5,22 +5,11 @@ const variables = require('./variables');
 const style = require('./style');
 const es6 = require('./es6');
 const imports = require('./imports');
+const react = require('./react');
+const reactJsx = require('./react-jsx');
+const reactHooks = require('./react-hooks');
 
 module.exports = {
-    env: {
-        es6: true,
-    },
-    parserOptions: {
-        ecmaFeatures: {
-            generators: false,
-            objectLiteralDuplicateProperties: false,
-        },
-        ecmaVersion: 6,
-        sourceType: 'module',
-    },
-    plugins: [
-        ...imports.plugins,
-    ],
     rules: {
         ...errors.rules,
         ...bestPractices.rules,
@@ -29,8 +18,8 @@ module.exports = {
         ...style.rules,
         ...es6.rules,
         ...imports.rules,
-    },
-    settings: {
-        ...imports.settings,
+        ...react.rules,
+        ...reactJsx.rules,
+        ...reactHooks.rules,
     },
 };
